@@ -1,3 +1,4 @@
+---
 - name: Print all available facts
   hosts: all
   gather_facts: yes  
