@@ -1,0 +1,15 @@
+---
+- name: rhc RHEL system role
+  hosts: all
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Registering system using activation key and organization ID
+      ansible.builtin.include_role:
+        name: rhel-system-roles.rhc
+      vars:
+        rhc_auth:
+          activation_keys:
+            keys:
+              - "{{ activation_key }}"
+        rhc_organization: "{{ organization_id }}"
