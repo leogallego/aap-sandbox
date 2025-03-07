@@ -1,3 +1,4 @@
+---
 - name: Ping world
   hosts: all
   tasks:
