@@ -1,0 +1,13 @@
+---
+- name: ocp get nodes
+  hosts: localhost
+  tasks:
+    - name: Get Kubernetes Nodes
+      kubernetes.core.k8s:
+        kind: Node
+        api_version: v1
+      register: k8s_nodes
+  
+    - name: debug
+      debug:
+        var: k8s_nodes
