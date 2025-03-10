@@ -1,0 +1,19 @@
+---
+- name: List Virtual Machines in OpenShift
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get Virtual Machines
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: VirtualMachine
+      register: vms
+
+    - name: Get a list of all pods from any namespace
+      kubernetes.core.k8s_info:
+        kind: Pod
+      register: pod_list
+
+    - name: Display Virtual Machines
+      debug:
+        msg: "{{ vms.resources | map(attribute='metadata.name') | list }}"
