@@ -1,13 +1,14 @@
 ---
-- name: ocp get nodes
+- name: ocp get pods
   hosts: localhost
   tasks:
-    - name: Get Kubernetes Nodes
+    - name: Get Kubernetes pods
       kubernetes.core.k8s:
-        kind: Node
+        kind: Pod
         api_version: v1
-      register: k8s_nodes
+        namespace: rhn-support-lgallego-dev
+      register: pods
   
     - name: debug
       debug:
-        var: k8s_nodes
+        var: pods
