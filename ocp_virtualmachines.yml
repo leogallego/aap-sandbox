@@ -11,19 +11,10 @@
         namespace: "{{ mynamespace }}"
       register: vms
 
-    - name: Get a list of all pods from my namespace
-      kubernetes.core.k8s_info:
-        api_version: v1
-        kind: Pod
-        namespace: "{{ mynamespace }}"
-      register: pod_list
-
     - name: Display Virtual Machines
       debug:
         msg: "{{ vms.resources | map(attribute='metadata.name') | list }}"
 
-    - name: Display Pods
-      debug:
-        msg: "{{ pods_list.resources | map(attribute='metadata.name') | list }}"
+
 
 
