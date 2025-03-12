@@ -75,6 +75,10 @@
                   - name: default
                     pod: {}
                 terminationGracePeriodSeconds: 180
+                tolerations:
+                  - effect: NoSchedule
+                    key: sandbox-cnv
+                    operator: Exists
                 volumes:
                   - dataVolume:
                       name: "rhel-prod-10"
