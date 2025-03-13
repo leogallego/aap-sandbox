@@ -9,4 +9,4 @@
           - "{{ activation_key }}"
         rhc_organization: "{{ organization_id }}"
   roles:
-    - rhel-system-roles.rhc
+    - redhat.rhel_system_roles.rhc
