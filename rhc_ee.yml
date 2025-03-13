@@ -1,0 +1,12 @@
+---
+- name: rhc RHEL system role
+  hosts: all
+  tasks:
+  vars:
+    rhc_auth:
+      activation_keys:
+        keys:
+          - "{{ activation_key }}"
+        rhc_organization: "{{ organization_id }}"
+  roles:
+    - rhel-system-roles.rhc
