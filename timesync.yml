@@ -1,0 +1,16 @@
+---
+- name: Managing time synchronization
+  hosts: all
+  tasks:
+    - name: Configuring NTP with an internal server (preferred) and a public server pool as fallback
+      ansible.builtin.include_role:
+        name: rhel-system-roles.timesync
+      vars:
+        timesync_ntp_servers:
+        - hostname: time.example.com
+          trusted: yes
+          prefer: yes
+          iburst: yes
+        - hostname: 0.rhel.pool.ntp.org
+          pool: yes
+          iburst: yes
