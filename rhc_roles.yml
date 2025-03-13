@@ -7,7 +7,7 @@
       activation_keys:
         keys:
           - "{{ activationkey }}"
-        rhc_organization: "{{ org_id }}"
+    rhc_organization: "{{ org_id }}"
   tasks:
   roles:
     - redhat.rhel_system_roles.rhc
