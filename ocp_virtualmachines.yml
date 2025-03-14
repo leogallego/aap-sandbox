@@ -11,9 +11,13 @@
         namespace: "{{ mynamespace }}"
       register: vms
 
-    - name: Display Virtual Machines
+    - name: Display Virtual Machines names
       debug:
         msg: "{{ vms.resources | map(attribute='metadata.name') | list }}"
+
+    - name: Display all Virtual Machines info
+      debug:
+        msg: "{{ vms }}"
 
 
 
