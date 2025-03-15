@@ -19,3 +19,6 @@
     ansible.builtin.debug:
       msg: "{{ vm }}"
   
+  - name: Debug vm_list
+    ansible.builtin.debug:
+      msg: "{{ vm_list }}"
