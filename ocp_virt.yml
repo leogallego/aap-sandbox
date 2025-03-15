@@ -7,7 +7,7 @@
     redhat.openshift_virtualization.kubevirt_vm_info:
       name: "{{ myvm }}"
       namespace: "{{ mynamespace }}"
-      wait: true
+#      wait: true
     register: vm
   
   - name: Get a list of all VirtualMachines in namespace
