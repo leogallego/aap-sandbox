@@ -2,7 +2,7 @@
 - name: OpenShift Virt
   hosts: all
   gather_facts: false
-  vars:
+  tasks:
   - name: Get an existing VirtualMachine
     redhat.openshift_virtualization.kubevirt_vm_info:
       name: "{{ myvm }}"
