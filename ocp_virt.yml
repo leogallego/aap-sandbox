@@ -1,0 +1,21 @@
+---
+- name: OpenShift Virt
+  hosts: all
+  gather_facts: false
+  vars:
+  - name: Get an existing VirtualMachine
+    redhat.openshift_virtualization.kubevirt_vm_info:
+      name: "{{ myvm }}"
+      namespace: "{{ mynamespace }}"
+      wait: true
+    register: vm
+  
+  - name: Get a list of all VirtualMachines in namespace
+    redhat.openshift_virtualization.kubevirt_vm_info:
+      namespace:  "{{ mynamespace }}"
+    register: vm_list
+
+  - name: Debug vm
+    ansible.builtin.debug:
+      msg: "{{ vm }}"
+  
