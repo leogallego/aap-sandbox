@@ -1,0 +1,14 @@
+---
+- name: Get IP address of a KubeVirt Virtual Machine
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get VirtualMachines info 
+      redhat.openshift_virtualization.kubevirt_vm_info:
+        name: "{{ myvm }}"
+        namespace:  "{{ mynamespace }}"
+      register: vm_info
+
+    - name: Display VM IP Address
+      debug:
+        msg: "{{ vm_info.resources[0].status.interfaces[0].ipAddress }}"
