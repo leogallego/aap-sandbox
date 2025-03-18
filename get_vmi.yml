@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Get Virtual Machine Instance (VMI) details
-      kubevirt.core.kubevirt_vmi_info:
+  redhat.openshift_virtualization.kubevirt_vm_info:
         name: "{{ myvm }}"
         namespace: "{{ mynamespace }}"
       register: vmi_info
