@@ -12,7 +12,7 @@
             name: "{{ myvm }}"
             namespace: "{{ mynamespace }}"
             labels:
-              app: "rhel-prod-10"
+              app: "{{ myvm }}"
               kubevirt.io/dynamic-credentials-support: 'true'
               vm.kubevirt.io/template: rhel9-server-small
               vm.kubevirt.io/template.namespace: openshift
