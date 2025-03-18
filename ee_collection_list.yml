@@ -1,0 +1,13 @@
+---
+- name: List collection and versions in Execution Environment
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Get installed collections
+      ansible.builtin.command: ansible-galaxy collection list
+      register: collections_output      
+
+    - name: Show collections
+      ansible.builtin.debug:
+        msg: "{{ collections_output.stdout_lines }}"
