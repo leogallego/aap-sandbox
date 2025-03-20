@@ -13,7 +13,7 @@
         url: "{{ api_url }}"
         method: PUT
         headers:
-          Authorization: "Bearer {{ SANDBOX_BEAERER_TOKEN_VAR }}"
+          Authorization: "Bearer {{ SANDBOX_BEARER_TOKEN_VAR }}"
         validate_certs: no
       register: result
 
