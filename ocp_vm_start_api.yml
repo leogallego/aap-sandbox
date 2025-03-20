@@ -3,14 +3,17 @@
   hosts: localhost
   gather_facts: false
   vars:
-    api_url: "{{ k8s_auth_host }}/apis/subresources.kubevirt.io/v1/namespaces/{{ mynamespace }}/virtualmachines/{{ myvm }}/start"
+    SANDBOX_HOST_VAR: "{{ lookup('env', 'SANDBOX_HOST') | default('SANDBOX_HOST_NOT_FOUND', true) }}"
+    SANDBOX_BEARER_TOKEN_VAR: "{{ lookup('env', 'SANDBOX_BEARER_TOKEN') | default('SANDBOX_BEARER_NOT_FOUND', true) }}"
+    api_url: "{{ SANDBOX_HOST_VAR }}/apis/subresources.kubevirt.io/v1/namespaces/{{ mynamespace }}/virtualmachines/{{ myvm }}/start"
   tasks:
+        
     - name: Start VM using OpenShift API
-      uri:
+      ansible.builtin.uri:
         url: "{{ api_url }}"
         method: PUT
         headers:
-          Authorization: "Bearer {{ k8s_auth_api_key }}"
+          Authorization: "Bearer {{ SANDBOX_BEAERER_TOKEN_VAR }}"
         validate_certs: no
       register: result
 
