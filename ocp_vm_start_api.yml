@@ -3,14 +3,14 @@
   hosts: localhost
   gather_facts: false
   vars:
-    api_url: "{{ sandbox_host }}/apis/subresources.kubevirt.io/v1/namespaces/{{ mynamespace }}/virtualmachines/{{ myvm }}/start"
+    api_url: "{{ SANDBOX_HOST }}/apis/subresources.kubevirt.io/v1/namespaces/{{ mynamespace }}/virtualmachines/{{ myvm }}/start"
   tasks:
     - name: Start VM using OpenShift API
       uri:
         url: "{{ api_url }}"
         method: PUT
         headers:
-          Authorization: "Bearer {{ sandbox_bearer_token }}"
+          Authorization: "Bearer {{ SANDBOX_BEARER_TOKEN }}"
         validate_certs: no
       register: result
 
