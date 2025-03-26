@@ -1,7 +1,7 @@
 ---
 - name: Print all available facts
   hosts: all
-  gather_facts: yes  
+  gather_facts: yes
   tasks:
     - name: Gather all facts and show them
       ansible.builtin.debug:

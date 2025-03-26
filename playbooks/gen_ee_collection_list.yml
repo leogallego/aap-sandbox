@@ -6,7 +6,7 @@
   tasks:
     - name: Get installed collections
       ansible.builtin.command: ansible-galaxy collection list
-      register: collections_output      
+      register: collections_output
 
     - name: Show collections
       ansible.builtin.debug:
