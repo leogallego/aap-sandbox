@@ -7,10 +7,10 @@
         name: redhat.rhel_system_roles.timesync
       vars:
         timesync_ntp_servers:
-        - hostname: time.example.com
-          trusted: yes
-          prefer: yes
-          iburst: yes
-        - hostname: 0.rhel.pool.ntp.org
-          pool: yes
-          iburst: yes
+          - hostname: time.example.com
+            trusted: yes
+            prefer: yes
+            iburst: yes
+          - hostname: 0.rhel.pool.ntp.org
+            pool: yes
+            iburst: yes
