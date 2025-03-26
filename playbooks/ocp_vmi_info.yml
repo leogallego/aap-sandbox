@@ -1,0 +1,14 @@
+---
+- name: Debug VMI data structure
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get Virtual Machine Instance (VMI) details
+      redhat.openshift_virtualization.kubevirt_vmi_info:
+        name: "{{ myvm }}"
+        namespace: "{{ mynamespace }}"
+      register: vmi_info
+
+    - name: Print full VMI info
+      debug:
+        var: vmi_info
