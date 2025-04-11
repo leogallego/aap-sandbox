@@ -1,0 +1,10 @@
+---
+- name: Delete a Virtual Machine in OCP Virtualization
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Delete VM
+      redhat.openshift_virtualization.kubevirt_vm:
+        name: "{{ myvm }}"
+        namespace: "{{ mynamespace }}"
+        state: absent
