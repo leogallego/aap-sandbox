@@ -23,3 +23,7 @@
     - name: Show API response
       debug:
         var: result
+
+    - name: Wait for system to become reachable 
+      ansible.builtin.wait_for_connection:
+        timeout: 120
