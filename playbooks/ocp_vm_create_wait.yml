@@ -111,4 +111,4 @@
     - name: Wait for system to become reachable over
       ansible.builtin.wait_for_connection:
         delay: 60
-        timeout: 600
+        timeout: 120
